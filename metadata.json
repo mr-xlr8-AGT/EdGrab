@@ -1,0 +1,8 @@
+{
+  "name": "EdGrab - Personalized AI Tutor",
+  "description": "Your personal AI tutor and study buddy. Features conversational learning, exam scheduling, and deep reasoning capabilities.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
