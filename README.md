@@ -8,6 +8,7 @@
 [![Status](https://img.shields.io/badge/status-Production%20Ready-success.svg)](https://github.com/mr-xlr8-AGT/EdGrab)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/mr-xlr8-AGT/EdGrab/pulls)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app)
 
 [Features](#-features) • [Demo](#-demo) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Roadmap](#-roadmap)
 
@@ -64,8 +65,18 @@ Powered by **Google's Gemini API** (multimodal + live audio), EdGrab delivers:
 
 ## 🎬 Demo
 
-> *Screenshots and demo video coming soon!*
+### 🚀 **[Try EdGrab Live](https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app)**
 
+**Deployed on Google Cloud Run** | Fully Functional MVP
+
+🌐 **Live URL**: [https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app](https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app)
+
+**Key Features Available:**
+- 🧠 AI Chat with Memory Bank integration
+- 🎙️ Real-time Voice Tutoring (Live Mode)
+- 📝 AI-generated Mock Exams & Analytics
+- 📈 Smart Dashboard with streak tracking
+- ✅ Full authentication & secure session management
 ---
 
 ## 🛠️ Tech Stack
