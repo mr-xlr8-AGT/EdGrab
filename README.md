@@ -1,280 +1,237 @@
-<p align="center"><img src="./assets/EdGrab-Logo.png" alt="EdGrab Logo" width="300"></p>
 
-# EdGrab - Deployed Link
+<div align="center">
 
-**AI-Powered Personalized Study Assistant with Long-Term Memory**
+# E D G R A B
+### Personalized AI Tutor
 
-**Stop Static Learning. Start Thriving.**
+[**EdGrab :- Deployed Link**](https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app/)
+
+
+[![License](https://img.shields.io/badge/license-apache2.0-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/react-v19.0-61dafb.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/typescript-v5.0-3178c6.svg)](https://www.typescriptlang.org/)
+[![Gemini API](https://img.shields.io/badge/Gemini-2.5%20Flash%20%7C%203.0%20Pro-8E44AD.svg)](https://ai.google.dev/)
+
+**Your personal intelligence engine.**
+*Master your syllabus, schedule your success, and never forget a thing.*
+
+</div>
 
 ---
 
-# TITLE: E D G R A B
+## ⚡ The Purpose
 
-## AI-Powered Personalized Study Assistant
+EdGrab is not just a chatbot. It is a **Context-Aware Educational Intelligence** designed to simulate the experience of a dedicated human tutor. 
 
-EdGrab is not just a tutoring application. It is an **Intelligent Learning Orchestrator** designed to transform how students study. By combining advanced AI reasoning, voice interaction, and personalized memory systems, EdGrab autonomously manages your academic schedule, generates practice exams, and provides real-time tutoring—turning fragmented studying into coherent, strategic learning.
+Unlike generic LLM wrappers, EdGrab maintains a persistent "Memory Bank" of your school schedule, upcoming exams, and syllabus. It leverages **Gemini 3.0 Pro** for deep reasoning and complex math, while utilizing **Gemini 2.5 Flash Native Audio** for real-time, low-latency voice coaching sessions. It turns the chaos of student life into a structured path to mastery.
 
 ---
 
-# TITLE: E D G R A B - The Purpose
+## 🛑 Problem Statement
 
-## Challenge & Impact
+Students face significant challenges in self-regulated learning:
 
 | Challenge | Impact |
-|-----------|--------|
-| Students spend 15+ hours weekly on unstructured studying | Time Inefficiency |
-| Lack of personalized guidance results in knowledge gaps | Inconsistent Learning |
-| No context about upcoming exams during study sessions | Reactive vs Proactive Learning |
-| Voice tutoring unavailable without internet/connectivity | Limited Accessibility |
-| Mock exams are generic, not tailored to syllabus | Low Relevance |
+| :--- | :--- |
+| **Generic Assistance** | AI tools lack context of grade level, school, or curriculum, leading to irrelevant answers. |
+| **Passive Learning** | Text-only interactions fail to build retention compared to oral active recall. |
+| **Disorganized Schedules** | Students cram 48 hours before exams due to poor time management. |
+| **Math Hallucinations** | Standard LLMs struggle with complex STEM derivation without specific reasoning capabilities. |
 
-**Students struggle with scattered study methods, lack of accountability, and no intelligent guidance.**
-
-# TITLE: E D G R A B - Problem Statement
-
-## The Challenge
-
-EdGrab addresses these challenges through:
-
-- **Contextual AI Memory**: Stores your schedule, syllabus, and exam dates
-- **Personalized Mock Exams**: AI-generated questions based on YOUR topics
-- **Voice Tutoring**: Real-time conversational learning via Gemini TTS
-- **Smart Dashboard**: Visual progress tracking and study insights
-- **Multimodal Support**: Chat, images, voice—all integrated
-
-**95% reduction in study prep time** | **60% improvement in exam readiness** | **Infinite personalization**
-
-# TITLE: E D G R A B - Business Impact
-
-## Operational Efficiency
-
-- Real-time answers to academic questions (chat + voice)
-- Elimination of generic study materials—fully personalized content
-- AI-managed exam preparation with mock exams
-
-## Strategic Advantages
-
-- Early preparation through schedule-aware reminders
-- Comprehensive understanding via multimodal learning
-- Continuous progress tracking without external tools
-
-## Risk Mitigation
-
-- Secure, client-side data storage (localStorage MVP)
-- Input validation for all academic data
-- Session isolation and secure authentication
+### Solution
+EdGrab addresses these challenges through a **multi-modal architecture** that combines deep reasoning, structured data generation (JSON exams), and real-time voice interaction to create a holistic learning environment.
 
 ---
 
-# TITLE: E D G R A B - The Architecture
+## 🚀 Educational Impact
 
-EdGrab employs a **modular, component-driven architecture** powered by **Google Gemini API**.
+### Learning Efficiency
+*   **Context Injection:** No need to explain "I'm in 10th grade" every time. EdGrab knows.
+*   **Active Recall:** "Live Mode" quizzes you verbally to ensure true understanding.
 
-## Core Components
-
-### 1. Memory Bank (Context Engine)
-Role: The Foundation  
-Task: Stores schedule, exams, and academic context. Every AI interaction is enriched with this data.
-
-### 2. EdTutor Chat
-Role: The Conversationalist  
-Task: Multimodal chat with image upload, LaTeX rendering, and thinking mode for STEM problems.
-
-### 3. Live Mode (Voice Tutoring)
-Role: The Voice Tutor  
-Task: Real-time voice conversations via WebSocket + Gemini Native Audio API.
-
-### 4. Mock Exams
-Role: The Assessment Engine  
-Task: AI-generated MCQs based on your syllabus with instant grading.
-
-### 5. Smart Dashboard
-Role: The Insights Hub  
-Task: Visualize progress, upcoming classes, study streaks, and performance trends.
+### Strategic Advantages
+*   **Thinking Models:** Uses `gemini-3-pro-preview` with thinking budgets for high-accuracy STEM solving.
+*   **Structured Practice:** Generates strict JSON-based mock exams for objective scoring.
 
 ---
 
-# TITLE: E D G R A B - Implementation Architecture
+## 🔗 The AI Architecture
 
-## Tech Stack
+EdGrab employs a multi-model approach powered by the **Google GenAI SDK**, routing specific tasks to the most efficient model.
 
-### Frontend
-- **React 18** with TypeScript
-- **Tailwind CSS** (custom EdGrab dark theme)
-- **Vite** (build tool)
-- **KaTeX** for LaTeX math rendering
-- **Recharts** for performance analytics
+### 1. ⚡ The Tutor Core (`gemini-3-pro-preview`)
+*   **Role:** The Professor.
+*   **Task:** Handles complex chat interactions, math problems (LaTeX output), and deep concept explanation.
+*   **Config:** Uses `thinkingConfig` to allocate token budgets for reasoning before answering.
 
-### AI & Audio
-- **Google Gemini API**
-  - `gemini-3-pro-preview` (complex reasoning)
-  - `gemini-2.5-flash` (standard queries)
-  - `gemini-2.5-flash-native-audio-preview` (voice)
-- **Web Audio API** (16kHz PCM encoding)
-- **WebSockets** for real-time communication
+### 2. 🎙️ Live Voice Agent (`gemini-2.5-flash-native-audio`)
+*   **Role:** The Coach.
+*   **Task:** Establishes a WebSocket connection for real-time, interruptible voice conversations.
+*   **Latency:** Optimized for sub-500ms interaction.
 
-### Storage & Security
-- **localStorage** (MVP phase)
-- **SHA-256** password hashing
-- **Session-based auth**
-- Future: Supabase/Firebase migration
+### 3. 📝 Exam Generator (`gemini-2.5-flash`)
+*   **Role:** The Examiner.
+*   **Task:** Generates strictly typed JSON arrays of multiple-choice questions based on specific syllabus topics.
+
+### 4. 🗣️ Speech Synthesis (`gemini-2.5-flash-tts`)
+*   **Role:** The Narrator.
+*   **Task:** Converts text responses into lifelike audio for accessibility and auditory learning.
 
 ---
 
-# FILE STRUCTURE
+## 📂 File Structure
 
-```
-EdGrab/
-├── components/          # React UI components
-├── pages/               # Page-level components
-├── server/              # Backend logic (voice, auth)
-├── services/            # Gemini API integrations
-├── App.tsx              # Root orchestrator
-├── index.html           # Entry point
-├── index.tsx            # React mount
-├── types.ts             # TypeScript definitions
-├── metadata.json        # App metadata
-├── package.json         # Dependencies
-├── tsconfig.json        # TypeScript config
-├── vite.config.ts       # Vite config
-└── README.md            # This file
+```text
+/EdGrab
+├── components/
+│   ├── Auth.tsx             # User authentication flow
+│   └── ...
+├── pages/
+│   ├── Chat.tsx             # Main chat interface with Markdown/Math support
+│   ├── Dashboard.tsx        # Visual progress tracking
+│   ├── Live.tsx             # Real-time audio visualizer & connection
+│   ├── Memory.tsx           # Schedule & Exam management
+│   ├── MockExams.tsx        # AI-generated testing center
+│   └── Profile.tsx          # User settings
+├── services/
+│   ├── audioUtils.ts        # PCM encoding/decoding for Live API
+│   └── geminiService.ts     # Centralized GenAI SDK implementation
+├── App.tsx                  # Routing & State Management
+├── types.ts                 # TypeScript interfaces
+└── metadata.json            # Permissions config
 ```
 
 ---
 
-# TITLE: Getting Started - Prerequisites
+## 🏗️ Implementation Details
 
-Before running EdGrab locally, ensure you have:
+### 1. Context Injection (System Instructions)
+EdGrab injects the user's "Memory Bank" (Schedule/Exams) directly into the model's system instruction, ensuring every response is personalized.
 
-- **Node.js** 18+
-- **npm** or **yarn**
-- **Google Gemini API key** ([Get one here](https://aistudio.google.com/app/apikey))
-- **Environment file** (.env.local)
-
----
-
-# TITLE: Getting Started - Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/mr-xlr8-AGT/EdGrab.git
-cd EdGrab
+**Sample (`geminiService.ts`):**
+```typescript
+const getSystemInstruction = (user, schedule, exams) => {
+  return `You are EdGrab, a tutor for ${user.firstName}.
+  Context: ${user.grade} at ${user.school}.
+  Upcoming Exams: ${exams.map(e => `${e.subject} on ${e.date}`).join(', ')}.
+  
+  IDENTITY RULES:
+  - Remind them if they are wasting time near an exam.
+  - Use LaTeX for math.
+  `;
+};
 ```
 
-### 2. Install Dependencies
+### 2. Real-time Audio (Live API)
+Implemented via `ai.live.connect` with bi-directional streaming. We handle raw PCM audio processing in the browser.
 
-```bash
-npm install
+**Sample (`services/geminiService.ts`):**
+```typescript
+export const connectLiveSession = async (user, exams, callbacks) => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  return ai.live.connect({
+    model: 'gemini-2.5-flash-native-audio-preview-09-2025',
+    config: {
+      responseModalities: [Modality.AUDIO],
+      systemInstruction: `Speaking to ${user.firstName}. Context: ${user.grade}...`
+    },
+    callbacks
+  });
+};
 ```
 
-### 3. Configure Environment
+### 3. Structured Data (Mock Exams)
+Uses `responseSchema` to force the model to output valid JSON for the exam engine, eliminating parsing errors.
 
-Create a `.env.local` file in the root:
-
-```
-VITE_GEMINI_API_KEY=your_google_gemini_api_key_here
-```
-
-### 4. Run Development Server
-
-```bash
-npm run dev
-```
-
-### 5. Open in Browser
-
-Navigate to: `http://localhost:5173`
-
----
-
-# TITLE: Usage
-
-### 1. Initialize Your Memory
-
-- Go to **Memory Bank**
-- Add your weekly schedule (classes, times)
-- Add upcoming exams with syllabus topics
-
-### 2. Start Studying
-
-- Use **EdTutor Chat** for questions
-- Try **Live Mode** for voice tutoring
-- Generate **Mock Exams** for assessment
-
-### 3. Track Progress
-
-- View **Dashboard** for insights
-- Check performance trends
-- Maintain your study streak
-
----
-
-# KEY FEATURES - Visual Overview
-
-### 🧠 Intelligent Context Awareness
-Every AI response knows your schedule, exams, and learning level.
-
-### 🎤 Real-Time Voice Tutoring
-Natural conversations with sub-500ms latency.
-
-### 📝 AI-Generated Mock Exams
-Personalized MCQs based on YOUR syllabus.
-
-### 📊 Smart Dashboard
-Visual progress tracking, streak counter, and insights.
-
-### 🎨 Dark Mode Interface
-Curated EdGrab theme for late-night studying.
-
----
-
-# TECH STACK
-
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS
-- **AI**: Google Gemini API (multimodal + audio)
-- **Styling**: Custom Dark Theme + Tailwind
-- **Visualization**: Recharts + KaTeX
-- **Real-time**: WebSockets
-- **Build**: Vite + npm
-
----
-
-# IMPORTANT NOTE
-
-For the best experience, please use the **[deployed application](https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app/)**.
-
-If you encounter quota errors running locally with a free-tier Gemini API key, this is expected. The deployed version has appropriate API access configured.
-
----
-
-# Build for Production
-
-```bash
-npm run build
-npm run preview
+**Sample (`services/geminiService.ts`):**
+```typescript
+const response = await ai.models.generateContent({
+  model: "gemini-2.5-flash",
+  config: {
+    responseMimeType: "application/json",
+    responseSchema: {
+      type: Type.ARRAY,
+      items: { type: Type.OBJECT, properties: { ... } }
+    }
+  }
+});
 ```
 
 ---
 
-# 📄 LICENSE
+## 🔑 Key Features
 
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+### 📊 Visual Intelligence Dashboard
+*   **Metrics:** High-contrast tracking of exams, streaks, and study hours.
+*   **Up Next:** Dynamic cards showing the immediate next class in your schedule.
+
+### 🎙️ Live Tutor Mode
+*   **Visualizer:** Real-time audio wave visualization driven by RMS amplitude.
+*   **Bi-directional:** Interrupt the AI anytime, just like a real conversation.
+
+### 🧠 Thinking Mode
+*   Toggleable "Thinking" mode in chat that allocates a 32k token budget for the model to "think" before answering complex physics or calculus questions.
 
 ---
 
-# 👨‍💻 AUTHOR
+## 🛠️ Tech Stack
 
-**Aditya Gaurav**
-
-Product Owner & Engineering Lead
-
-[GitHub](https://github.com/mr-xlr8-AGT) | [Portfolio](https://your-portfolio.com)
+*   **Core:** React 19, TypeScript, Vite.
+*   **AI:** `@google/genai` SDK.
+*   **Styling:** Tailwind CSS (Custom "EdGrab Dark" Theme).
+*   **Visualization:** Recharts.
+*   **Math Rendering:** KaTeX + React Markdown.
 
 ---
 
-**Built with ❤️ for students, by students**
+## ⚠️ Important Note
 
-[Report Bug](https://github.com/mr-xlr8-AGT/EdGrab/issues) • [Request Feature](https://github.com/mr-xlr8-AGT/EdGrab/issues)
+**For the best experience, please use the [deployed application](https://edgrab-personalized-ai-tutor-55600892774.us-west1.run.app/).**
 
-⭐ **Star this repo if you find it helpful!**
+If you encounter quota-related errors when running locally with a free-tier Gemini API key, this is expected behavior due to API rate limitations. The deployed version is configured with appropriate API access to ensure uninterrupted service.
+
+---
+
+## 🏁 Getting Started
+
+### Prerequisites
+*   Node.js 18+
+*   A Google Cloud Project with Gemini API enabled.
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/mr-xlr8-AGT/EdGrab.git
+    cd EdGrab
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment**
+    Create a `.env` file in the root (or rely on the app's internal handling if configured differently):
+    ```env
+    API_KEY=your_google_gemini_api_key_here
+    ```
+
+4.  **Run the Tutor**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🎮 Usage
+
+1.  **Initialize:** Create your profile (Grade, School).
+2.  **Memory:** Go to the "Memory" tab and add your weekly schedule and upcoming exams.
+3.  **Chat:** Ask questions. EdGrab will reference your exams ("Don't forget your Calculus test on Friday!").
+4.  **Live:** Click the microphone icon to practice orally.
+5.  **Exam:** Generate a mock test to check your readiness.
+
+---
+
+*Created for the Future of Education.*
